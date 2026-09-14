@@ -1,0 +1,16 @@
+verify_output.txt
+Verification run against bigbasket_capstone.db
+
+SELECT COUNT(*) FROM products;  -> 31
+SELECT COUNT(*) FROM customers;  -> 50
+SELECT COUNT(*) FROM orders;  -> 500
+SELECT COUNT(*) FROM category_targets;  -> 6
+
+SELECT status, COUNT(*) FROM orders GROUP BY status;
+  Cancelled: 42
+  Delivered: 434
+  Pending: 24
+
+All counts match the brief's acceptance criteria exactly:
+31 products, 50 customers, 500 orders, 6 category_targets,
+Delivered 434 / Cancelled 42 / Pending 24.
